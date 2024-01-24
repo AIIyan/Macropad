@@ -3,16 +3,17 @@
 #include <Adafruit_SSD1306.h>
 #include "Keyboard.h"
 
-#define OLED_SDA 2
-#define OLED_SCL 3
-Adafruit_SSD1306 display(128, 32, &Wire, OLED_SDA, OLED_SCL);
+//#define OLED_SDA 2
+//#define OLED_SCL 3
+#define OLED_RESET -1
+#define SCREEN_ADRESS 0x3C
+Adafruit_SSD1306 display(128, 64, &Wire, OLED_RESET);
 
-#define ROWS 4
-#define COLS 3
+#define ROWS 3
+#define COLS 4
 
 const int rowPins[ROWS] = {15, 14, 16};  // Adjust pins as per your connections
 const int colPins[COLS] = {4, 5, 6, 7};     // Adjust pins as per your connections
-
 const int encoder1PinA = 21;
 const int encoder1PinB = 20;
 const int encoder2PinA = 19;
@@ -22,8 +23,13 @@ void setup() {
   Serial.begin(9600);
 
   // Setup OLED display
-  Wire.begin();
-  display.begin(SSD1306_I2C_ADDRESS, OLED_SDA, OLED_SCL);
+  //Wire.begin();
+  if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADRESS)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for (;;)
+      ;
+  }
+  //display.begin(0x3C, OLED_SDA, OLED_SCL);
   display.display();
 
   // Setup switches
@@ -41,10 +47,12 @@ void setup() {
   pinMode(encoder1PinB, INPUT_PULLUP);
   pinMode(encoder2PinA, INPUT_PULLUP);
   pinMode(encoder2PinB, INPUT_PULLUP);
+
 }
 
 void loop() {
-  // Your main loop code here
+  int lastEncoder1State = 0;
+  int lastEncoder2State = 0;
 
   // Handle switches
   for (int col = 0; col < COLS; col++) {
@@ -52,8 +60,42 @@ void loop() {
 
     for (int row = 0; row < ROWS; row++) {
       if (digitalRead(rowPins[row]) == LOW) {
-        // Key pressed, you can use a switch-case statement to identify the key
-        // For example, use Keyboard.write('a') to send the letter 'a'
+
+        //case to identify key
+        switch (row * COLS + col) {
+          case 0:
+            // Key in the first column, first row
+            // Perform your action here
+            Keyboard.write('A');
+            break;
+          case 1:
+            // Key in the first column, second row
+            // Perform your action here
+            Keyboard.write('B');
+            break;
+          case 2:
+            break;
+          case 3:
+            break;
+          case 4:
+            break;
+          case 5:
+            break;
+          case 6:
+            break;
+          case 7:
+            break;
+          case 8:
+            break;
+          case 9:
+            break;
+          case 10:
+            break;
+          case 11:
+            break;
+        }
+          // Add more cases for other keys as needed
+
       }
     }
 
@@ -85,5 +127,11 @@ void loop() {
   }
   lastEncoder2State = encoder2State;
 
-  // Additional code for OLED display updates can be added here
+  //display.setRotation(2);
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+  display.print("Blender \n1) copy 2) paste \n3) X 4) y 5) z");
+  display.display();
 }
