@@ -207,6 +207,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (footprint "Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u" (layer "F.Cu")
@@ -284,6 +289,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" (layer "F.Cu")
@@ -297,11 +307,11 @@
     (property "ki_keywords" "connector")
     (path "/df58dfb1-7671-4774-af46-4f0fe863d288")
     (attr through_hole)
-    (fp_text reference "J1" (at 0 -2.33 -90) (layer "F.SilkS")
+    (fp_text reference "J1" (at 0 -2.33 90) (layer "F.SilkS")
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 4f3ab216-66f0-449f-a999-2bdfa7115b62)
     )
-    (fp_text value "i2c display" (at 0 9.95 -90) (layer "F.Fab")
+    (fp_text value "i2c display" (at 0 9.95 90) (layer "F.Fab")
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 5e14034a-27d5-49de-acea-5d25f0063268)
     )
@@ -348,9 +358,14 @@
     (pad "4" thru_hole oval (at 0 7.62 270) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask")
       (net 32 "Net-(J1-Pin_4)") (pinfunction "Pin_4") (pintype "passive") (tstamp d8777e83-e000-4df3-b42f-286e222aa932))
     (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x04_P2.54mm_Vertical.wrl"
-      (offset (xyz 0 0 0))
+      (offset (xyz 0 0 2.5))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 180 0))
+    )
+    (model "${KIPRJMOD}/Miscellanious models/Display_OLED_0.96_128x64.step"
+      (offset (xyz -11.5 -4 2.5))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 90))
     )
   )
 
@@ -425,6 +440,11 @@
     (pad "2" thru_hole circle (at 2.54 -5.08) (size 2.5 2.5) (drill 1.5) (layers "*.Cu" "*.Mask")
       (net 21 "COL2") (pinfunction "B") (pintype "passive") (tstamp f0116f1c-badc-45c4-9c0b-7e22c7a2d401))
     (model "${KICAD6_3RD_PARTY}/3dmodels/com_github_perigoso_keyswitch-kicad-library/3d-library.3dshapes/SW_Cherry_MX_PCB.wrl"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -506,6 +526,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (footprint "Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u" (layer "F.Cu")
@@ -578,7 +603,12 @@
       (net 5 "Net-(D4-A)") (pinfunction "A") (pintype "passive") (tstamp 680f164a-ce86-4f37-8331-ce2d6541335c))
     (pad "2" thru_hole circle (at 2.54 -5.08) (size 2.5 2.5) (drill 1.5) (layers "*.Cu" "*.Mask")
       (net 22 "COL3") (pinfunction "B") (pintype "passive") (tstamp 808e013f-9ee6-42d9-b9b5-dd915406f7be))
-    (model "${KICAD6_3RD_PARTY}/3dmodels/com_github_perigoso_keyswitch-kicad-library/3d-library.3dshapes/SW_Cherry_MX_PCB.wrl"
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -720,6 +750,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (footprint "promicro:ProMicro" (layer "F.Cu")
@@ -819,6 +854,31 @@
       (net 16 "GND") (pinfunction "GND") (pintype "power_in") (tstamp 3f4dfbd2-321a-4146-9bed-8fe0085c1d3c))
     (pad "24" thru_hole circle (at -13.97 -7.62 270) (size 1.6 1.6) (drill 1.1) (layers "*.Cu" "*.Mask" "F.SilkS")
       (net 36 "unconnected-(U1-RAW-Pad24)") (pinfunction "RAW") (pintype "power_out") (tstamp a0b6580f-ccf2-4f4f-b4ad-2d2802ed816a))
+    (model ":KICAD7_3DMODEL_DIR:Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x12_P2.54mm_Vertical.step"
+      (offset (xyz 14 7.5 9.5))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 180 90))
+    )
+    (model ":KICAD7_3DMODEL_DIR:Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x12_P2.54mm_Vertical.step"
+      (offset (xyz 14 -7.5 9.5))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 180 90))
+    )
+    (model ":KICAD7_3DMODEL_DIR:Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x12_P2.54mm_Vertical.step"
+      (offset (xyz 14 7.5 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 90))
+    )
+    (model ":KICAD7_3DMODEL_DIR:Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x12_P2.54mm_Vertical.step"
+      (offset (xyz 14 -7.5 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 90))
+    )
+    (model "${KIPRJMOD}/Miscellanious models/Arduino Pro Micro USB Type C.step"
+      (offset (xyz -14 9 9.5))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (footprint "Rotary_Encoder:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm_CircularMountingHoles" (layer "F.Cu")
@@ -912,6 +972,11 @@
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/Miscellanious models/EC11_Rotary_Encoder_Switched.step"
+      (offset (xyz 7.5 -2.5 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 90))
     )
   )
 
@@ -1020,6 +1085,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (footprint "Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u" (layer "F.Cu")
@@ -1093,6 +1163,11 @@
     (pad "2" thru_hole circle (at 2.54 -5.08) (size 2.5 2.5) (drill 1.5) (layers "*.Cu" "*.Mask")
       (net 19 "COL0") (pinfunction "B") (pintype "passive") (tstamp b78b5b46-1bc8-4ccc-80cb-e288eef581f7))
     (model "${KICAD6_3RD_PARTY}/3dmodels/com_github_perigoso_keyswitch-kicad-library/3d-library.3dshapes/SW_Cherry_MX_PCB.wrl"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -1221,6 +1296,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+    (model "${KIPRJMOD}/Miscellanious models/EC11_Rotary_Encoder_Switched.step"
+      (offset (xyz 7.5 -2.5 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 90))
+    )
   )
 
   (footprint "Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u" (layer "F.Cu")
@@ -1298,6 +1378,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (footprint "Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.00u" (layer "F.Cu")
@@ -1371,6 +1456,11 @@
     (pad "2" thru_hole circle (at 2.54 -5.08) (size 2.5 2.5) (drill 1.5) (layers "*.Cu" "*.Mask")
       (net 21 "COL2") (pinfunction "B") (pintype "passive") (tstamp 91a5d10e-7183-4fc3-976b-11916df3a029))
     (model "${KICAD6_3RD_PARTY}/3dmodels/com_github_perigoso_keyswitch-kicad-library/3d-library.3dshapes/SW_Cherry_MX_PCB.wrl"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/kiswitch/library/3dmodels/3d-library.3dshapes/SW_Cherry_MX_PCB.stp"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
