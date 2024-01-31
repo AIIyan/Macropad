@@ -19,6 +19,29 @@ const int encoder1PinB = 20;
 const int encoder2PinA = 19;
 const int encoder2PinB = 18;
 
+int lastEncoder1State = 0;
+int lastEncoder2State = 0;
+
+const char* macros[16] = {
+  "String 1",
+  "String 2",
+  "String 3",
+  "String 4",
+  "String 5",
+  "String 6",
+  "String 7",
+  "String 8",
+  "String 9",
+  "String 10",
+  "String 11",
+  "String 12",
+  "String 13",
+  "String 14",
+  "String 15",
+  "String 16"
+};
+
+
 void setup() {
   Serial.begin(9600);
 
@@ -51,8 +74,6 @@ void setup() {
 }
 
 void loop() {
-  int lastEncoder1State = 0;
-  int lastEncoder2State = 0;
 
   // Handle switches
   for (int col = 0; col < COLS; col++) {
@@ -60,42 +81,8 @@ void loop() {
 
     for (int row = 0; row < ROWS; row++) {
       if (digitalRead(rowPins[row]) == LOW) {
-
-        //case to identify key
-        switch (row * COLS + col) {
-          case 0:
-            // Key in the first column, first row
-            // Perform your action here
-            Keyboard.write('A');
-            break;
-          case 1:
-            // Key in the first column, second row
-            // Perform your action here
-            Keyboard.write('B');
-            break;
-          case 2:
-            break;
-          case 3:
-            break;
-          case 4:
-            break;
-          case 5:
-            break;
-          case 6:
-            break;
-          case 7:
-            break;
-          case 8:
-            break;
-          case 9:
-            break;
-          case 10:
-            break;
-          case 11:
-            break;
-        }
-          // Add more cases for other keys as needed
-
+        int key = row * COLS + col;
+        executeMacro(macros[key]);
       }
     }
 
@@ -108,9 +95,11 @@ void loop() {
     if (digitalRead(encoder1PinB) != encoder1State) {
       // Encoder 1 rotated clockwise
       // Perform your action here
+      executeMacro(macros[12]);
     } else {
       // Encoder 1 rotated counterclockwise
       // Perform your action here
+      executeMacro(macros[13]);
     }
   }
   lastEncoder1State = encoder1State;
@@ -120,18 +109,77 @@ void loop() {
     if (digitalRead(encoder2PinB) != encoder2State) {
       // Encoder 2 rotated clockwise
       // Perform your action here
+      executeMacro(macros[14]);
     } else {
       // Encoder 2 rotated counterclockwise
       // Perform your action here
+      executeMacro(macros[15]);
     }
   }
   lastEncoder2State = encoder2State;
 
-  //display.setRotation(2);
+  display.setRotation(2);
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(SSD1306_WHITE);
   display.setCursor(0, 0);
-  display.print("Blender \n1) copy 2) paste \n3) X 4) y 5) z");
+  display.print("");
   display.display();
+}
+
+void executeMacro(const char* macro) {
+  int len = strlen(macro);
+
+  for (int i = 0; i < len; i++) {
+    if (macro[i] == '[') {
+      // Find the end of the command (closing bracket)
+      int endPos = i + 1;
+      while (endPos < len && macro[endPos] != ']') {
+        endPos++;
+      }
+
+      // Extract the command and process it
+      if (endPos < len) {
+        processCommand(&macro[i + 1], endPos - i - 1);
+        i = endPos; // Skip the processed command
+      }
+    } else {
+      // Send regular ASCII key
+      Keyboard.write(macro[i]);
+    }
+
+    delay(10); // Delay to ensure proper keypress recognition
+  }
+
+  // Release all keys at the end
+  Keyboard.releaseAll();
+}
+
+void processCommand(const char* command, int length) {
+  // Handle different commands here
+  if (strncmp(command, "CTRL", 4) == 0) {
+    Keyboard.press(KEY_LEFT_CTRL);
+  } else if (strncmp(command, "/CTRL", 5) == 0) {
+    Keyboard.release(KEY_LEFT_CTRL);
+  } else if (strncmp(command, "ALT", 3) == 0) {
+    Keyboard.press(KEY_LEFT_ALT);
+  } else if (strncmp(command, "/ALT", 4) == 0) {
+    Keyboard.release(KEY_LEFT_ALT);
+  } else if (strncmp(command, "WIN", 3) == 0) {
+    Keyboard.press(KEY_LEFT_GUI);
+  } else if (strncmp(command, "/WIN", 4) == 0) {
+    Keyboard.release(KEY_LEFT_GUI);
+  } else if (strncmp(command, "F", 1) == 0 && length > 1) {
+    int functionKey = atoi(&command[1]);
+    if (functionKey >= 1 && functionKey <= 12) {
+      Keyboard.press(KEY_F1 + functionKey - 1);
+    }
+  } else if (strncmp(command, "MEDIA", 5) == 0) {
+    int mediaKey = atoi(&command[5]);
+    if (mediaKey >= 1 && mediaKey <= 12) {
+      //Keyboard.press(KEY_MEDIA_VOLUME_UP + mediaKey - 1);
+    }
+  }
+
+  // Add more commands as needed
 }
